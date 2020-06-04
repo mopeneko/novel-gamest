@@ -1,0 +1,16 @@
+version: "2"
+
+services:
+  api:
+    build:
+      context: api
+    ports:
+      - "1323:1323"
+
+  db:
+    image: mysql
+    environment:
+      MYSQL_USER: mopeneko
+      MYSQL_PASSWORD: mopepass
+      MYSQL_RANDOM_ROOT_PASSWORD: ok
+      MYSQL_DATABASE: novelgamest
