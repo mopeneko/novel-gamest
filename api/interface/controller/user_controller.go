@@ -77,6 +77,9 @@ func (controller *UserController) GetByID(c echo.Context) error {
 	}
 	resp.Name = user.Name
 
+	// TODO: 今後postsに関する実装をした後に書く
+	resp.Posts = []model.Post{}
+
 	return c.JSON(http.StatusOK, &resp)
 }
 
