@@ -6,7 +6,6 @@ import (
 
 	"github.com/dgrijalva/jwt-go"
 	"github.com/jinzhu/gorm"
-	"github.com/labstack/echo/v4/middleware"
 )
 
 type jwtSecret struct {
@@ -31,7 +30,6 @@ type JWTProvider struct {
 
 // NewJWTProvider returns JWT provider
 func NewJWTProvider(secret []byte) *JWTProvider {
-	router.Use(middleware.JWT(secret))
 	return &JWTProvider{secret}
 }
 

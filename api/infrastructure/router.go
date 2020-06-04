@@ -8,12 +8,13 @@ import (
 
 var router *echo.Echo
 
-func init() {
+// InitRouter initials router
+func InitRouter() {
 	router = echo.New()
 
 	// JWTの秘密鍵をDBから取得
 	secret := jwtSecret{}
-	db.First(secret)
+	db.First(&secret)
 
 	userController := controller.UserController{
 		UserRepository:    database.UserRepository{DB: db},

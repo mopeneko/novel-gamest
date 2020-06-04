@@ -5,5 +5,7 @@ import (
 )
 
 func main() {
+	infrastructure.InitDB()
+	infrastructure.InitRouter()
 	infrastructure.Run()
 }

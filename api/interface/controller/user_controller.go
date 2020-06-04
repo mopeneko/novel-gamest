@@ -52,7 +52,15 @@ func (controller *UserController) SignUp(c echo.Context) error {
 		return c.JSON(http.StatusInternalServerError, &resp)
 	}
 
-	return controller.SignIn(c)
+	// トークンを生成
+	token, err := controller.UserTokenProvider.Generate(req.ID)
+	if err != nil {
+		resp.Message = "エラーが発生しました。"
+		return c.JSON(http.StatusInternalServerError, &resp)
+	}
+
+	resp.Message = token
+	return c.JSON(http.StatusOK, &resp)
 }
 
 // GetByID returns an user which has same ID

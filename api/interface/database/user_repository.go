@@ -17,10 +17,8 @@ func (repo *UserRepository) Save(user domain.User) error {
 
 // FindByID returns an user which has same ID
 func (repo *UserRepository) FindByID(id string) (domain.User, error) {
-	user := domain.User{
-		UserID: id,
-	}
-	err := repo.DB.First(&user).Error
+	user := domain.User{}
+	err := repo.DB.First(&user, "user_id = ?", id).Error
 
 	return user, err
 }
