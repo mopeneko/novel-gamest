@@ -1,5 +1,11 @@
 package model
 
+// User is an alternative object for User entity
+type User struct {
+	ID   string `json:"id"`
+	Name string `json:"name"`
+}
+
 // UserCreateRequest is a request for creating an user
 type UserCreateRequest struct {
 	ID       string `json:"id"`
@@ -19,7 +25,7 @@ type UserGetByIDRequest struct {
 // UserGetByIDResponse is a response for getting an user which has same ID
 type UserGetByIDResponse struct {
 	Name  string `json:"name"`
-	Posts []Game `json:"posts"`
+	Posts []Post `json:"posts"`
 }
 
 // UserGetWithAuthenticationRequest is a request for getting an user which has same authentication
